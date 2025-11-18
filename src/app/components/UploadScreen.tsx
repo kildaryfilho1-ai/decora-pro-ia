@@ -1,13 +1,13 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, FC } from 'react';
 import { Camera, Upload, Sparkles } from 'lucide-react';
 
-interface UploadScreenProps {
+type UploadScreenProps = {
   onUpload: (imageUrl: string) => void;
-}
+};
 
-export default function UploadScreen({ onUpload }: UploadScreenProps) {
+const UploadScreen: FC<UploadScreenProps> = ({ onUpload }) => {
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -111,4 +111,6 @@ export default function UploadScreen({ onUpload }: UploadScreenProps) {
       </div>
     </div>
   );
-}
+};
+
+export default UploadScreen;

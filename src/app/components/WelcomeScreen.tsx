@@ -1,13 +1,14 @@
 'use client';
 
+import { FC } from 'react';
 import { Home, ArrowRight, User } from 'lucide-react';
 
-interface WelcomeScreenProps {
+type WelcomeScreenProps = {
   onStart: () => void;
   onClientArea?: () => void;
-}
+};
 
-export default function WelcomeScreen({ onStart, onClientArea }: WelcomeScreenProps) {
+const WelcomeScreen: FC<WelcomeScreenProps> = ({ onStart, onClientArea }) => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black flex flex-col items-center justify-between p-6 sm:p-8">
       {/* Botão Área do Cliente no topo */}
@@ -55,4 +56,6 @@ export default function WelcomeScreen({ onStart, onClientArea }: WelcomeScreenPr
       </div>
     </div>
   );
-}
+};
+
+export default WelcomeScreen;
