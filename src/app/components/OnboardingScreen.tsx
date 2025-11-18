@@ -1,11 +1,11 @@
 'use client';
 
-import { useState, FC } from 'react';
+import { useState } from 'react';
 import { Wand2, Camera, Sparkles, ArrowRight, ArrowLeft } from 'lucide-react';
 
-type OnboardingScreenProps = {
+interface OnboardingScreenProps {
   onComplete: () => void;
-};
+}
 
 const slides = [
   {
@@ -25,7 +25,7 @@ const slides = [
   },
 ];
 
-const OnboardingScreen: FC<OnboardingScreenProps> = ({ onComplete }) => {
+export default function OnboardingScreen({ onComplete }: OnboardingScreenProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const handleNext = () => {
@@ -95,6 +95,4 @@ const OnboardingScreen: FC<OnboardingScreenProps> = ({ onComplete }) => {
       </div>
     </div>
   );
-};
-
-export default OnboardingScreen;
+}

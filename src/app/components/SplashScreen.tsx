@@ -1,21 +1,8 @@
 'use client';
 
-import { useEffect, FC } from 'react';
 import { Sparkles } from 'lucide-react';
 
-type SplashScreenProps = {
-  onComplete: () => void;
-};
-
-const SplashScreen: FC<SplashScreenProps> = ({ onComplete }) => {
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      onComplete();
-    }, 2500);
-
-    return () => clearTimeout(timer);
-  }, [onComplete]);
-
+export default function SplashScreen() {
   return (
     <div className="fixed inset-0 bg-black flex items-center justify-center">
       <div className="text-center animate-fade-in">
@@ -30,6 +17,4 @@ const SplashScreen: FC<SplashScreenProps> = ({ onComplete }) => {
       </div>
     </div>
   );
-};
-
-export default SplashScreen;
+}

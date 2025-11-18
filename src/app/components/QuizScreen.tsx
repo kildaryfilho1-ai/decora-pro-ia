@@ -1,11 +1,11 @@
 'use client';
 
-import { useState, FC } from 'react';
+import { useState } from 'react';
 import { ArrowRight, ArrowLeft, Sparkles, Check } from 'lucide-react';
 
-type QuizScreenProps = {
+interface QuizScreenProps {
   onComplete: (preferences: Record<string, string>) => void;
-};
+}
 
 const questions = [
   {
@@ -132,7 +132,7 @@ const questions = [
   },
 ];
 
-const QuizScreen: FC<QuizScreenProps> = ({ onComplete }) => {
+export default function QuizScreen({ onComplete }: QuizScreenProps) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -312,6 +312,4 @@ const QuizScreen: FC<QuizScreenProps> = ({ onComplete }) => {
       `}</style>
     </div>
   );
-};
-
-export default QuizScreen;
+}
